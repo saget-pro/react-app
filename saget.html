@@ -19,6 +19,300 @@
       --border-radius: 10px;
     }
 
+    /* Loading Screen Styles */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--dark) 0%, #3a3f4b 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #loading-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-container {
+      text-align: center;
+      color: white;
+    }
+
+    .loading-image {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 30px;
+      position: relative;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .loading-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .loading-text {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .loading-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .loading-progress {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      animation: loading 2s ease-in-out infinite;
+    }
+
+    .loading-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: bounce 1.4s ease-in-out infinite both;
+    }
+
+    .dot:nth-child(1) { animation-delay: -0.32s; }
+    .dot:nth-child(2) { animation-delay: -0.16s; }
+    .dot:nth-child(3) { animation-delay: 0s; }
+
+    /* Login Button */
+    .login-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 1001;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .login-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Login Modal */
+    .login-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1002;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-modal.active {
+      display: flex;
+    }
+
+    .login-form {
+      background: white;
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-hover);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-form h2 {
+      margin-bottom: 30px;
+      color: var(--dark);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+    }
+
+    .login-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .login-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 122, 204, 0.3);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: var(--gray);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-btn:hover {
+      color: var(--dark);
+      transform: rotate(90deg);
+    }
+
+    /* User Info (after login) */
+    .user-info {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      z-index: 1001;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .user-info.active {
+      display: flex;
+    }
+
+    .logout-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: var(--transition);
+    }
+
+    .logout-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Time and Date Display */
+    .time-date-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      min-width: 180px;
+      transition: var(--transition);
+    }
+
+    .time-date-container:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .current-time {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .current-date {
+      font-size: 0.9em;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .location {
+      font-size: 0.8em;
+      color: var(--secondary);
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Rest of your existing styles */
     * {
       margin: 0;
       padding: 0;
@@ -502,6 +796,31 @@
       }
     }
 
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(0%); }
+      100% { transform: translateX(100%); }
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -531,10 +850,92 @@
       .form-selector {
         flex-direction: column;
       }
+
+      .time-date-container {
+        position: static;
+        margin: 20px auto;
+        max-width: 200px;
+      }
+
+      .loading-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      .login-btn, .user-info {
+        top: 10px;
+        left: 10px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-container">
+      <div class="loading-image">
+        <img src="images.webp" alt="Hakuzimana Alex">
+      </div>
+      <div class="loading-text">HAKUZIMANA ALEX</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Button -->
+  <button class="login-btn" id="loginBtn">
+    <i class="fas fa-sign-in-alt"></i>
+    Login
+  </button>
+
+  <!-- User Info (shown after login) -->
+  <div class="user-info" id="userInfo">
+    <i class="fas fa-user-circle"></i>
+    <span id="userName">Admin</span>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-form">
+      <button class="close-btn" id="closeLogin">&times;</button>
+      <h2>Login to Portfolio</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required placeholder="Enter username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required placeholder="Enter password">
+        </div>
+        <button type="submit" class="login-submit">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </button>
+        <div style="margin-top: 15px; font-size: 14px; color: var(--gray);">
+          <p>Demo credentials:<br>Username: <strong>admin</strong><br>Password: <strong>password</strong></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Time and Date Display -->
+  <div class="time-date-container">
+    <div class="current-time" id="currentTime">00:00:00</div>
+    <div class="current-date" id="currentDate">Loading...</div>
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Kigali, Rwanda</span>
+    </div>
+  </div>
 
   <!-- Home Section -->
   <header>
@@ -746,6 +1147,123 @@
   </a>
 
   <script>
+    // Login System
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeLogin = document.getElementById('closeLogin');
+    const loginForm = document.getElementById('loginForm');
+    const userInfo = document.getElementById('userInfo');
+    const userName = document.getElementById('userName');
+
+    // Show login modal
+    loginBtn.addEventListener('click', () => {
+      loginModal.classList.add('active');
+    });
+
+    // Close login modal
+    closeLogin.addEventListener('click', () => {
+      loginModal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.remove('active');
+      }
+    });
+
+    // Handle login form submission
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // Simple demo login (in real app, this would connect to a server)
+      if (username === 'admin' && password === 'password') {
+        // Successful login
+        loginBtn.style.display = 'none';
+        userInfo.classList.add('active');
+        userName.textContent = username;
+        loginModal.classList.remove('active');
+        
+        // Show welcome message
+        alert('Welcome back, ' + username + '!');
+        
+        // Store login state (in real app, use secure methods)
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
+      } else {
+        alert('Invalid credentials! Try:\nUsername: admin\nPassword: password');
+      }
+    });
+
+    // Handle logout
+    logoutBtn.addEventListener('click', () => {
+      loginBtn.style.display = 'flex';
+      userInfo.classList.remove('active');
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      alert('You have been logged out!');
+    });
+
+    // Check if user is already logged in
+    window.addEventListener('load', () => {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const savedUsername = localStorage.getItem('username');
+      
+      if (isLoggedIn === 'true' && savedUsername) {
+        loginBtn.style.display = 'none';
+        userInfo.classList.add('active');
+        userName.textContent = savedUsername;
+      }
+    });
+
+    // Time and Date Functionality
+    function updateTimeAndDate() {
+      const now = new Date();
+      
+      // Format time
+      const time = now.toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      
+      // Format date
+      const date = now.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      // Update DOM
+      document.getElementById('currentTime').textContent = time;
+      document.getElementById('currentDate').textContent = date;
+    }
+
+    // Update time immediately and then every second
+    updateTimeAndDate();
+    setInterval(updateTimeAndDate, 1000);
+
+    // Loading screen functionality
+    window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // Simulate loading time
+      setTimeout(() => {
+        loadingScreen.classList.add('fade-out');
+        
+        // Remove loading screen from DOM after fade out
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 800);
+      }, 2000);
+    });
+
     // Back to top button functionality
     const backToTopButton = document.querySelector('.back-to-top');
     
@@ -808,6 +1326,16 @@
         targetForm.querySelector('textarea[name="body"], textarea[name="message"]').value = message;
       }
     }
+
+    // Error handling for images
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          console.log('Image failed to load:', this.src);
+        });
+      });
+    });
   </script>
 
 </body>
