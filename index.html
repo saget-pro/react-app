@@ -50,6 +50,172 @@
       color: white;
     }
 
+    /* Language Toggle */
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 80px;
+      z-index: 1002;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .language-toggle:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Translation Widget */
+    .translation-widget {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 350px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-hover);
+      z-index: 1001;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    [data-theme="dark"] .translation-widget {
+      background: #2d3748;
+    }
+
+    .translation-widget.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .translation-header {
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .translation-body {
+      padding: 20px;
+    }
+
+    .language-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .lang-btn {
+      flex: 1;
+      padding: 8px 12px;
+      background: var(--light);
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .lang-btn {
+      background: #374151;
+      color: white;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .translation-input, .translation-output {
+      width: 100%;
+      min-height: 100px;
+      padding: 15px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    [data-theme="dark"] .translation-input,
+    [data-theme="dark"] .translation-output {
+      background: #374151;
+      border-color: #4b5563;
+      color: white;
+    }
+
+    .translation-output {
+      background: #f8f9fa;
+      color: var(--dark);
+      min-height: 120px;
+      overflow-y: auto;
+    }
+
+    [data-theme="dark"] .translation-output {
+      background: #1f2937;
+      color: white;
+    }
+
+    .translate-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .translate-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .translate-btn:disabled {
+      background: var(--gray);
+      cursor: not-allowed;
+    }
+
+    .translation-loading {
+      display: none;
+      text-align: center;
+      padding: 10px;
+      color: var(--primary);
+    }
+
+    .translation-loading.active {
+      display: block;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
     /* Amazing Loading Screen Styles */
     #loading-screen {
       position: fixed;
@@ -197,53 +363,6 @@
       font-weight: 600;
       color: var(--primary);
       text-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
-    }
-
-    /* New Animations */
-    @keyframes textGlow {
-      0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-      }
-      100% {
-        text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary);
-      }
-    }
-
-    @keyframes linePulse {
-      0%, 100% {
-        opacity: 0.5;
-        width: 100px;
-      }
-      50% {
-        opacity: 1;
-        width: 150px;
-      }
-    }
-
-    @keyframes shimmer {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(200%);
-      }
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-      }
     }
 
     /* NEW FEATURES STYLES */
@@ -1395,6 +1514,13 @@
         font-size: 1em;
       }
 
+      .language-toggle {
+        top: 10px;
+        right: 60px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
+
       .stats-container {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1426,6 +1552,11 @@
         height: 400px;
         right: 20px;
         bottom: 80px;
+      }
+
+      .translation-widget {
+        width: calc(100% - 40px);
+        right: 20px;
       }
     }
   </style>
@@ -1459,6 +1590,37 @@
   <button class="theme-toggle" id="themeToggle">
     <i class="fas fa-moon"></i>
   </button>
+
+  <!-- Language Toggle -->
+  <button class="language-toggle" id="languageToggle">
+    <i class="fas fa-language"></i>
+    <span>Translate</span>
+  </button>
+
+  <!-- Translation Widget -->
+  <div class="translation-widget" id="translationWidget">
+    <div class="translation-header">
+      <span>Google Translate</span>
+      <button class="close-translation" id="closeTranslation">×</button>
+    </div>
+    <div class="translation-body">
+      <div class="language-selector">
+        <button class="lang-btn active" data-lang="en-rw">English → Kinyarwanda</button>
+        <button class="lang-btn" data-lang="rw-en">Kinyarwanda → English</button>
+      </div>
+      <textarea class="translation-input" id="translationInput" placeholder="Type text to translate..."></textarea>
+      <div class="translation-loading" id="translationLoading">
+        <div class="loading-spinner"></div>
+        Translating...
+      </div>
+      <button class="translate-btn" id="translateBtn">
+        <i class="fas fa-exchange-alt"></i> Translate
+      </button>
+      <div class="translation-output" id="translationOutput">
+        Translated text will appear here...
+      </div>
+    </div>
+  </div>
 
   <!-- Time and Date Display -->
   <div class="time-date-container">
@@ -2035,6 +2197,197 @@ console.log(greet("Visitor"));
       }
     }
 
+    // Translation System with Google Translate API
+    function setupTranslation() {
+      const languageToggle = document.getElementById('languageToggle');
+      const translationWidget = document.getElementById('translationWidget');
+      const closeTranslation = document.getElementById('closeTranslation');
+      const translateBtn = document.getElementById('translateBtn');
+      const translationInput = document.getElementById('translationInput');
+      const translationOutput = document.getElementById('translationOutput');
+      const translationLoading = document.getElementById('translationLoading');
+      const langButtons = document.querySelectorAll('.lang-btn');
+      
+      let currentDirection = 'en-rw'; // Default: English to Kinyarwanda
+      
+      // Toggle translation widget
+      languageToggle.addEventListener('click', () => {
+        translationWidget.classList.toggle('active');
+      });
+      
+      closeTranslation.addEventListener('click', () => {
+        translationWidget.classList.remove('active');
+      });
+      
+      // Language direction selection
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          langButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDirection = btn.getAttribute('data-lang');
+          
+          // Update placeholder based on direction
+          if (currentDirection === 'en-rw') {
+            translationInput.placeholder = 'Type English text to translate to Kinyarwanda...';
+          } else {
+            translationInput.placeholder = 'Andika icyongereza ushaka gusobanura mu Kinyarwanda...';
+          }
+        });
+      });
+      
+      // Translate function using Google Translate API
+      async function translateText(text, sourceLang, targetLang) {
+        const apiKey = 'AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw'; // Free tier API key
+        const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+        
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              q: text,
+              source: sourceLang,
+              target: targetLang,
+              format: 'text'
+            })
+          });
+          
+          if (!response.ok) {
+            throw new Error('Translation failed');
+          }
+          
+          const data = await response.json();
+          return data.data.translations[0].translatedText;
+        } catch (error) {
+          console.error('Translation error:', error);
+          // Fallback to a simple dictionary if API fails
+          return fallbackTranslation(text, sourceLang, targetLang);
+        }
+      }
+      
+      // Fallback translation dictionary
+      function fallbackTranslation(text, sourceLang, targetLang) {
+        const dictionary = {
+          'en-rw': {
+            'hello': 'muraho',
+            'hi': 'muraho',
+            'good morning': 'muramutse',
+            'good afternoon': 'mwiriwe',
+            'good evening': 'muramuke',
+            'how are you': 'amakuru',
+            'thank you': 'murakoze',
+            'please': 'nyamuneka',
+            'welcome': 'murakaza neza',
+            'goodbye': 'muramuke',
+            'see you later': 'reba nyuma',
+            'yes': 'yego',
+            'no': 'oya',
+            'sorry': 'mbabarira',
+            'help': 'fasha',
+            'love': 'urukundo',
+            'friend': 'inshuti',
+            'family': 'umuryango',
+            'home': 'urugo',
+            'work': 'akazi',
+            'food': 'ibiryo',
+            'water': 'amazi',
+            'time': 'igihe',
+            'day': 'umunsi',
+            'today': 'uyu munsi',
+            'tomorrow': 'ejo',
+            'yesterday': 'ejo hashize'
+          },
+          'rw-en': {
+            'muraho': 'hello',
+            'muramutse': 'good morning',
+            'mwiriwe': 'good afternoon',
+            'muramuke': 'good evening',
+            'murakoze': 'thank you',
+            'nyamuneka': 'please',
+            'murakaza neza': 'welcome',
+            'yego': 'yes',
+            'oya': 'no',
+            'mbabarira': 'sorry',
+            'amakuru': 'how are you',
+            'fasha': 'help',
+            'urukundo': 'love',
+            'inshuti': 'friend',
+            'umuryango': 'family',
+            'urugo': 'home',
+            'akazi': 'work',
+            'ibiryo': 'food',
+            'amazi': 'water',
+            'igihe': 'time',
+            'umunsi': 'day',
+            'uyu munsi': 'today',
+            'ejo': 'tomorrow',
+            'ejo hashize': 'yesterday'
+          }
+        };
+        
+        const lowerText = text.toLowerCase();
+        const dict = dictionary[currentDirection];
+        
+        if (dict && dict[lowerText]) {
+          return dict[lowerText];
+        }
+        
+        // If no direct match, try to translate word by word
+        const words = text.split(' ');
+        const translatedWords = words.map(word => {
+          const lowerWord = word.toLowerCase();
+          return dict && dict[lowerWord] ? dict[lowerWord] : word;
+        });
+        
+        return translatedWords.join(' ');
+      }
+      
+      // Translate button click handler
+      translateBtn.addEventListener('click', async () => {
+        const text = translationInput.value.trim();
+        
+        if (!text) {
+          translationOutput.textContent = 'Please enter some text to translate.';
+          return;
+        }
+        
+        // Show loading
+        translationLoading.classList.add('active');
+        translateBtn.disabled = true;
+        
+        try {
+          let sourceLang, targetLang;
+          
+          if (currentDirection === 'en-rw') {
+            sourceLang = 'en';
+            targetLang = 'rw';
+          } else {
+            sourceLang = 'rw';
+            targetLang = 'en';
+          }
+          
+          const translatedText = await translateText(text, sourceLang, targetLang);
+          translationOutput.textContent = translatedText;
+        } catch (error) {
+          translationOutput.textContent = 'Translation failed. Please try again.';
+          console.error('Translation error:', error);
+        } finally {
+          // Hide loading
+          translationLoading.classList.remove('active');
+          translateBtn.disabled = false;
+        }
+      });
+      
+      // Auto-translate on Enter key
+      translationInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && e.ctrlKey) {
+          translateBtn.click();
+        }
+      });
+    }
+
     // 3D Skills Visualization
     function create3DSkills() {
       const sphere = document.getElementById('skillSphere');
@@ -2474,6 +2827,7 @@ console.log(greet("Visitor"));
       setupCodePlayground();
       setupPerformanceDashboard();
       setupAIChat();
+      setupTranslation();
     });
   </script>
 
