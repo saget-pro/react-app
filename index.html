@@ -19,6 +19,37 @@
       --border-radius: 10px;
     }
 
+    /* Dark Theme Variables */
+    [data-theme="dark"] {
+      --primary: #4dabf7;
+      --primary-dark: #339af0;
+      --secondary: #845ef7;
+      --dark: #f8f9fa;
+      --light: #282c34;
+      --gray: #adb5bd;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+      color: white;
+    }
+
+    [data-theme="dark"] body {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+    }
+
+    [data-theme="dark"] .skill-card,
+    [data-theme="dark"] .project,
+    [data-theme="dark"] .contact-info,
+    [data-theme="dark"] form,
+    [data-theme="dark"] #about,
+    [data-theme="dark"] #projects {
+      background: #2d3748;
+      color: white;
+    }
+
+    [data-theme="dark"] .time-date-container {
+      background: rgba(45, 55, 72, 0.95);
+      color: white;
+    }
+
     /* Loading Screen Styles */
     #loading-screen {
       position: fixed;
@@ -107,163 +138,65 @@
     .dot:nth-child(2) { animation-delay: -0.16s; }
     .dot:nth-child(3) { animation-delay: 0s; }
 
-    /* Login Button */
-    .login-btn {
+    /* Theme Toggle */
+    .theme-toggle {
       position: fixed;
       top: 20px;
       left: 20px;
+      width: 50px;
+      height: 50px;
       background: var(--primary);
       color: white;
-      padding: 12px 20px;
       border: none;
-      border-radius: var(--border-radius);
+      border-radius: 50%;
       cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
       z-index: 1001;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      font-size: 1.2em;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
     }
 
-    .login-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
+    .theme-toggle:hover {
+      transform: rotate(30deg);
       box-shadow: var(--shadow-hover);
     }
 
-    /* Login Modal */
-    .login-modal {
-      display: none;
+    /* Animated Background */
+    .animated-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1002;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      z-index: -1;
+      opacity: 0.1;
     }
 
-    .login-modal.active {
-      display: flex;
-    }
-
-    .login-form {
-      background: white;
-      padding: 40px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-hover);
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .login-form h2 {
-      margin-bottom: 30px;
-      color: var(--dark);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #e9ecef;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: var(--transition);
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
-    }
-
-    .login-submit {
-      width: 100%;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      transition: var(--transition);
-      margin-top: 10px;
-    }
-
-    .login-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 122, 204, 0.3);
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 1.5em;
-      color: var(--gray);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .close-btn:hover {
-      color: var(--dark);
-      transform: rotate(90deg);
-    }
-
-    /* User Info (after login) */
-    .user-info {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: white;
-      padding: 12px 20px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      z-index: 1001;
-      display: none;
+    /* Download Resume Button */
+    .download-btn {
+      display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .user-info.active {
-      display: flex;
-    }
-
-    .logout-btn {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--secondary) 0%, #8a7fff 100%);
       color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
+      padding: 15px 30px;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
       transition: var(--transition);
+      margin-top: 20px;
+      box-shadow: var(--shadow);
     }
 
-    .logout-btn:hover {
-      background: var(--primary-dark);
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
     /* Time and Date Display */
@@ -329,6 +262,7 @@
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       color: #333;
       overflow-x: hidden;
+      transition: var(--transition);
     }
 
     /* Header Styles */
@@ -471,6 +405,7 @@
       margin-top: -50px;
       position: relative;
       z-index: 1;
+      transition: var(--transition);
     }
 
     #about p {
@@ -479,6 +414,47 @@
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
+    }
+
+    /* Skills Progress Bars */
+    .skills-progress {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .skill-item {
+      margin-bottom: 25px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: between;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .skill-percentage {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: #e9ecef;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 5px;
+      width: 0;
+      transition: width 2s ease-in-out;
     }
 
     /* Skills Section */
@@ -490,6 +466,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
+      margin-bottom: 50px;
     }
 
     .skill-card {
@@ -535,12 +512,81 @@
       color: var(--dark);
     }
 
+    /* Statistics Section */
+    #statistics {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: var(--border-radius);
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .stat {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    /* Services Section */
+    #services {
+      background: transparent;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-card i {
+      font-size: 3em;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
     /* Projects Section */
     #projects {
       background: white;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       padding: 50px;
+      transition: var(--transition);
     }
 
     .projects-grid {
@@ -617,6 +663,7 @@
       padding: 30px;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
+      transition: var(--transition);
     }
 
     .contact-item {
@@ -644,6 +691,7 @@
       padding: 40px;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
+      transition: var(--transition);
     }
 
     .form-group {
@@ -722,6 +770,40 @@
 
     .form-type.active {
       display: block;
+    }
+
+    /* Call to Action */
+    #cta {
+      background: linear-gradient(135deg, var(--dark) 0%, #3a3f4b 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      border-radius: var(--border-radius);
+      margin-top: 50px;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 30px;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 20px;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
     }
 
     /* Footer */
@@ -821,6 +903,12 @@
       }
     }
 
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -839,7 +927,7 @@
         padding: 30px 20px;
       }
       
-      .skills-container, .projects-grid {
+      .skills-container, .projects-grid, .services-grid {
         grid-template-columns: 1fr;
       }
       
@@ -862,9 +950,20 @@
         height: 120px;
       }
 
-      .login-btn, .user-info {
+      .theme-toggle {
         top: 10px;
         left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+      }
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-number {
+        font-size: 2em;
       }
     }
   </style>
@@ -889,43 +988,13 @@
     </div>
   </div>
 
-  <!-- Login Button -->
-  <button class="login-btn" id="loginBtn">
-    <i class="fas fa-sign-in-alt"></i>
-    Login
+  <!-- Animated Background -->
+  <div class="animated-bg"></div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
   </button>
-
-  <!-- User Info (shown after login) -->
-  <div class="user-info" id="userInfo">
-    <i class="fas fa-user-circle"></i>
-    <span id="userName">Admin</span>
-    <button class="logout-btn" id="logoutBtn">Logout</button>
-  </div>
-
-  <!-- Login Modal -->
-  <div class="login-modal" id="loginModal">
-    <div class="login-form">
-      <button class="close-btn" id="closeLogin">&times;</button>
-      <h2>Login to Portfolio</h2>
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required placeholder="Enter username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required placeholder="Enter password">
-        </div>
-        <button type="submit" class="login-submit">
-          <i class="fas fa-sign-in-alt"></i>
-          Login
-        </button>
-        <div style="margin-top: 15px; font-size: 14px; color: var(--gray);">
-          <p>Demo credentials:<br>Username: <strong>admin</strong><br>Password: <strong>password</strong></p>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <!-- Time and Date Display -->
   <div class="time-date-container">
@@ -945,11 +1014,17 @@
     <p>I build modern web applications using PHP, Python, React, Vue, JavaScript, HTML & CSS.</p>
     
     <div class="social-icons">
-      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/saget-pro" target="_blank"><i class="fab fa-github"></i></a>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:sagetalex@outlook.com"><i class="fas fa-envelope"></i></a>
     </div>
+
+    <!-- Download Resume Button -->
+    <a href="#" class="download-btn" id="downloadResume">
+      <i class="fas fa-phone"></i>
+      saget
+    </a>
   </header>
 
   <!-- About Section -->
@@ -969,6 +1044,8 @@
     <div class="section-title">
       <h2>Skills</h2>
     </div>
+    
+    <!-- Skills Cards -->
     <div class="skills-container">
       <div class="skill-card">
         <i class="fab fa-php"></i>
@@ -1001,6 +1078,92 @@
         <p>Semantic markup and modern styling techniques</p>
       </div>
     </div>
+
+    <!-- Skills Progress Bars -->
+    <div class="skills-progress">
+      <div class="skill-item">
+        <div class="skill-info">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-percentage">85%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" data-width="85"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-info">
+          <span class="skill-name">Python</span>
+          <span class="skill-percentage">78%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" data-width="78"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-info">
+          <span class="skill-name">PHP</span>
+          <span class="skill-percentage">82%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" data-width="82"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-info">
+          <span class="skill-name">React</span>
+          <span class="skill-percentage">75%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" data-width="75"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="statistics">
+    <div class="stats-container">
+      <div class="stat">
+        <div class="stat-number" data-target="25">0</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-label">Coffee Cups</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Custom web applications using modern technologies and best practices</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Responsive Design</h3>
+        <p>Mobile-first approach ensuring perfect experience on all devices</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-database"></i>
+        <h3>Backend Development</h3>
+        <p>Robust server-side solutions with PHP and Python</p>
+      </div>
+    </div>
   </section>
 
   <!-- Projects Section -->
@@ -1014,7 +1177,7 @@
           <i class="fas fa-laptop-code"></i>
         </div>
         <div class="project-content">
-          <h3>Project Title 1</h3>
+          <h3>E-Commerce Platform</h3>
           <p>A web application using React for frontend and PHP for backend APIs. Features include user authentication, dashboard, and real-time data.</p>
           <a href="https://github.com/saget-pro/project1" target="_blank" class="project-link">
             View Code <i class="fas fa-arrow-right"></i>
@@ -1027,9 +1190,9 @@
           <i class="fas fa-chart-line"></i>
         </div>
         <div class="project-content">
-          <h3>Project Title 2</h3>
+          <h3>Data Analytics Dashboard</h3>
           <p>A Vue.js app that consumes a Python Flask API to display dynamic content. Built for learning full-stack integration.</p>
-          <a href="https://github.com/yourusername/project2" target="_blank" class="project-link">
+          <a href="https://github.com/saget-pro/project2" target="_blank" class="project-link">
             View Code <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -1040,13 +1203,25 @@
           <i class="fas fa-mobile-alt"></i>
         </div>
         <div class="project-content">
-          <h3>Project Title 3</h3>
+          <h3>Mobile-First Web App</h3>
           <p>Responsive web application with modern UI/UX design principles and optimized performance.</p>
-          <a href="#" target="_blank" class="project-link">
+          <a href="https://github.com/saget-pro/project3" target="_blank" class="project-link">
             View Code <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section id="cta">
+    <div class="cta-content">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's work together to bring your ideas to life</p>
+      <a href="#contact" class="cta-btn">
+        <i class="fas fa-paper-plane"></i>
+        Get In Touch
+      </a>
     </div>
   </section>
 
@@ -1068,7 +1243,7 @@
           <i class="fas fa-envelope"></i>
           <div>
             <h3>Email</h3>
-            <p>alexsaget@outlook.com</p>
+            <p>sagetalex@outlook.com</p>
           </div>
         </div>
         <div class="contact-item">
@@ -1076,6 +1251,13 @@
           <div>
             <h3>Phone</h3>
             <p>+250 795464622</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <div>
+            <h3>GitHub</h3>
+            <p>github.com/saget-pro</p>
           </div>
         </div>
       </div>
@@ -1087,7 +1269,7 @@
         </div>
 
         <!-- Mailto Form (Works locally) -->
-        <form id="mailto-form" class="form-type active" action="mailto:alexsaget@outlook.com" method="post" enctype="text/plain">
+        <form id="mailto-form" class="form-type active" action="mailto:sagetalex@outlook.com" method="post" enctype="text/plain">
           <div class="form-group">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
@@ -1109,9 +1291,9 @@
         </form>
 
         <!-- FormSubmit Form (Works when hosted) -->
-        <form id="formsubmit-form" class="form-type" action="https://formsubmit.co/alexsaget@outlook.com" method="POST">
+        <form id="formsubmit-form" class="form-type" action="https://formsubmit.co/sagetalex@outlook.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://yourusername.github.io/portfolio/thank-you.html">
+          <input type="hidden" name="_next" value="https://saget-pro.github.io/portfolio/thank-you.html">
 
           <div class="form-group">
             <label for="name2">Your Name:</label>
@@ -1139,6 +1321,10 @@
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Hakuzimana Alex. All rights reserved.</p>
+      <div class="social-icons" style="margin-top: 20px;">
+        <a href="https://github.com/saget-pro" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:sagetalex@outlook.com"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
   </footer>
 
@@ -1147,78 +1333,75 @@
   </a>
 
   <script>
-    // Login System
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const loginModal = document.getElementById('loginModal');
-    const closeLogin = document.getElementById('closeLogin');
-    const loginForm = document.getElementById('loginForm');
-    const userInfo = document.getElementById('userInfo');
-    const userName = document.getElementById('userName');
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
 
-    // Show login modal
-    loginBtn.addEventListener('click', () => {
-      loginModal.classList.add('active');
-    });
+    // Check for saved theme or prefer-color-scheme
+    const savedTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
 
-    // Close login modal
-    closeLogin.addEventListener('click', () => {
-      loginModal.classList.remove('active');
-    });
-
-    // Close modal when clicking outside
-    loginModal.addEventListener('click', (e) => {
-      if (e.target === loginModal) {
-        loginModal.classList.remove('active');
-      }
-    });
-
-    // Handle login form submission
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      
-      // Simple demo login (in real app, this would connect to a server)
-      if (username === 'admin' && password === 'password') {
-        // Successful login
-        loginBtn.style.display = 'none';
-        userInfo.classList.add('active');
-        userName.textContent = username;
-        loginModal.classList.remove('active');
-        
-        // Show welcome message
-        alert('Welcome back, ' + username + '!');
-        
-        // Store login state (in real app, use secure methods)
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('username', username);
-      } else {
-        alert('Invalid credentials! Try:\nUsername: admin\nPassword: password');
-      }
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
     });
 
-    // Handle logout
-    logoutBtn.addEventListener('click', () => {
-      loginBtn.style.display = 'flex';
-      userInfo.classList.remove('active');
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('username');
-      alert('You have been logged out!');
-    });
+    function updateThemeIcon(theme) {
+      themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
 
-    // Check if user is already logged in
-    window.addEventListener('load', () => {
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      const savedUsername = localStorage.getItem('username');
-      
-      if (isLoggedIn === 'true' && savedUsername) {
-        loginBtn.style.display = 'none';
-        userInfo.classList.add('active');
-        userName.textContent = savedUsername;
-      }
-    });
+    // Skills Progress Bars Animation
+    function animateSkills() {
+      const skillProgresses = document.querySelectorAll('.skill-progress');
+      skillProgresses.forEach(progress => {
+        const width = progress.getAttribute('data-width');
+        progress.style.width = width + '%';
+      });
+    }
+
+    // Statistics Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 1);
+        } else {
+          counter.innerText = target;
+        }
+      });
+    }
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'skills') {
+            animateSkills();
+          } else if (entry.target.id === 'statistics') {
+            animateCounters();
+          }
+        }
+      });
+    }, observerOptions);
 
     // Time and Date Functionality
     function updateTimeAndDate() {
@@ -1326,6 +1509,16 @@
         targetForm.querySelector('textarea[name="body"], textarea[name="message"]').value = message;
       }
     }
+
+    // Download Resume functionality
+    document.getElementById('downloadResume').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Resume download functionality would be implemented here. For now, please contact me directly for my resume.');
+    });
+
+    // Observe sections for animations
+    observer.observe(document.getElementById('skills'));
+    observer.observe(document.getElementById('statistics'));
 
     // Error handling for images
     document.addEventListener('DOMContentLoaded', function() {
