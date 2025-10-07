@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hakuzimana Alex - Portfolio</title>
+  <link rel="shortcut icon" href="fc-barcelona-seeklogo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Enhanced CSS Variables */
@@ -325,7 +325,7 @@
       top: 25px;
       z-index: 1002;
       background: var(--gradient-primary);
-      color: white;
+      color:white;
       border: none;
       padding: 12px 20px;
       border-radius: 50px;
@@ -1180,79 +1180,6 @@
       padding: 25px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.8em;
-      }
-      
-      header h2 {
-        font-size: 1.4em;
-      }
-      
-      .section-title h2 {
-        font-size: 2.4em;
-      }
-      
-      section {
-        padding: 80px 20px;
-      }
-      
-      .skills-container, .projects-grid, .contact-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .time-date-container {
-        position: static;
-        margin: 20px auto;
-        max-width: 250px;
-        transform: none;
-      }
-
-      .theme-toggle {
-        top: 15px;
-        left: 15px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.1em;
-      }
-
-      .language-toggle, .currency-toggle {
-        top: 15px;
-        padding: 10px 15px;
-        font-size: 0.85em;
-      }
-
-      .language-toggle {
-        right: 140px;
-      }
-
-      .currency-toggle {
-        right: 15px;
-      }
-
-      .translation-widget, .currency-widget {
-        width: calc(100% - 30px);
-        right: 15px;
-      }
-
-      .chat-toggle {
-        bottom: 20px;
-        left: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.3em;
-      }
-
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 1em;
-      }
-    }
-
     /* Enhanced Scroll Animations */
     .fade-in-scroll {
       opacity: 0;
@@ -1300,10 +1227,281 @@
       animation: morph3d 30s ease-in-out infinite;
       opacity: 0.6;
     }
+
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 1003;
+      width: 55px;
+      height: 55px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light);
+      z-index: 1002;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    [data-theme="dark"] .mobile-nav {
+      background: var(--dark);
+    }
+
+    .mobile-nav.active {
+      transform: translateY(0);
+    }
+
+    .mobile-nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 1.8em;
+      margin: 15px 0;
+      padding: 15px 30px;
+      border-radius: 50px;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .mobile-nav a {
+      color: white;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--gradient-primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* Enhanced Responsive Design */
+    @media (max-width: 1200px) {
+      .time-date-container {
+        left: 25%;
+      }
+    }
+
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 3.2em;
+      }
+      
+      header h2 {
+        font-size: 1.6em;
+      }
+      
+      .section-title h2 {
+        font-size: 2.8em;
+      }
+      
+      .time-date-container {
+        position: static;
+        margin: 40px auto;
+        max-width: 300px;
+        transform: none;
+      }
+      
+      .translation-widget, .currency-widget {
+        width: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: flex;
+      }
+      
+      .language-toggle, .currency-toggle {
+        display: none;
+      }
+      
+      header h1 {
+        font-size: 2.8em;
+      }
+      
+      header h2 {
+        font-size: 1.4em;
+      }
+      
+      .section-title h2 {
+        font-size: 2.4em;
+      }
+      
+      section {
+        padding: 80px 20px;
+      }
+      
+      .skills-container, .projects-grid, .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1em;
+      }
+      
+      .download-btn {
+        padding: 14px 30px;
+        font-size: 1em;
+      }
+      
+      .skill-card, .project, .contact-item {
+        padding: 30px 20px;
+      }
+      
+      .contact-form {
+        padding: 30px 20px;
+      }
+      
+      .theme-toggle {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1em;
+      }
+
+      .translation-widget, .currency-widget {
+        width: calc(100% - 30px);
+        right: 15px;
+      }
+
+      .chat-toggle {
+        bottom: 20px;
+        left: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.3em;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+      }
+      
+      .loading-text {
+        font-size: 1.8em;
+      }
+      
+      .loading-bar-container {
+        width: 300px;
+      }
+      
+      .loading-image {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2.2em;
+      }
+      
+      header h2 {
+        font-size: 1.2em;
+      }
+      
+      .section-title h2 {
+        font-size: 2em;
+      }
+      
+      header p {
+        font-size: 1em;
+      }
+      
+      .skill-card i {
+        font-size: 3em;
+      }
+      
+      .project-img {
+        height: 180px;
+        font-size: 3em;
+      }
+      
+      .social-icons {
+        gap: 15px;
+      }
+      
+      .social-icons a {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .loading-text {
+        font-size: 1.5em;
+      }
+      
+      .loading-bar-container {
+        width: 250px;
+      }
+      
+      .loading-image {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      
+      .section-title h2 {
+        font-size: 1.6em;
+      }
+      
+      .skill-card, .project, .contact-item {
+        padding: 20px 15px;
+      }
+      
+      .contact-form {
+        padding: 20px 15px;
+      }
+      
+      .loading-text {
+        font-size: 1.2em;
+      }
+      
+      .loading-bar-container {
+        width: 200px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Your existing HTML content remains exactly the same -->
   <!-- Loading Screen -->
   <div id="loading-screen">
     <div class="particles" id="particles"></div>
@@ -1326,6 +1524,27 @@
 
   <!-- Animated Background -->
   <div class="animated-bg"></div>
+
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="language-toggle mobile-language-toggle" id="mobileLanguageToggle">
+      <i class="fas fa-language"></i>
+      <span>Translate</span>
+    </button>
+    <button class="currency-toggle mobile-currency-toggle" id="mobileCurrencyToggle">
+      <i class="fas fa-money-bill-wave"></i>
+      <span>Currency</span>
+    </button>
+  </nav>
 
   <!-- Theme Toggle -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -1488,13 +1707,13 @@
       </div>
       <div class="skill-card fade-in-scroll">
         <i class="fab fa-node"></i>
-        <h3>node.js</h3>
-        <p>Modern backend development with node js and related ecosystem</p>
+        <h3>Node.js</h3>
+        <p>Modern backend development with Node.js and related ecosystem</p>
       </div>
       <div class="skill-card fade-in-scroll">
-        <i class="fab fa-html&css"></i>
-        <h3>Html&css</h3>
-        <p>Modern UI development with hTML and CSS related ecosystem</p>
+        <i class="fab fa-html5"></i>
+        <h3>HTML & CSS</h3>
+        <p>Modern UI development with HTML and CSS related ecosystem</p>
       </div>
     </div>
 
@@ -1632,10 +1851,8 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <!-- Your existing JavaScript remains exactly the same -->
   <script>
-    // Your existing JavaScript code...
-     // Performance optimization: Debounce function
+    // Performance optimization: Debounce function
     function debounce(func, wait) {
       let timeout;
       return function executedFunction(...args) {
@@ -1699,6 +1916,26 @@
       updateThemeIcon(newTheme);
     });
 
+    // Mobile Navigation
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+    const mobileCurrencyToggle = document.getElementById('mobileCurrencyToggle');
+
+    mobileNavToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      mobileNavToggle.innerHTML = mobileNav.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile nav when clicking on a link
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
     // Optimized Widget Management
     function setupWidgets() {
       const languageToggle = document.getElementById('languageToggle');
@@ -1713,15 +1950,27 @@
         currencyWidget.classList.remove('active');
       }
 
-      languageToggle.addEventListener('click', () => {
+      function openTranslationWidget() {
         closeAllWidgets();
         translationWidget.classList.toggle('active');
-      });
+        // Close mobile nav if open
+        mobileNav.classList.remove('active');
+        mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
 
-      currencyToggle.addEventListener('click', () => {
+      function openCurrencyWidget() {
         closeAllWidgets();
         currencyWidget.classList.toggle('active');
-      });
+        // Close mobile nav if open
+        mobileNav.classList.remove('active');
+        mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+
+      languageToggle.addEventListener('click', openTranslationWidget);
+      mobileLanguageToggle.addEventListener('click', openTranslationWidget);
+
+      currencyToggle.addEventListener('click', openCurrencyWidget);
+      mobileCurrencyToggle.addEventListener('click', openCurrencyWidget);
 
       closeTranslation.addEventListener('click', () => {
         translationWidget.classList.remove('active');
@@ -1733,10 +1982,14 @@
 
       // Close widgets when clicking outside
       document.addEventListener('click', (e) => {
-        if (!translationWidget.contains(e.target) && !languageToggle.contains(e.target)) {
+        if (!translationWidget.contains(e.target) && 
+            !languageToggle.contains(e.target) && 
+            !mobileLanguageToggle.contains(e.target)) {
           translationWidget.classList.remove('active');
         }
-        if (!currencyWidget.contains(e.target) && !currencyToggle.contains(e.target)) {
+        if (!currencyWidget.contains(e.target) && 
+            !currencyToggle.contains(e.target) && 
+            !mobileCurrencyToggle.contains(e.target)) {
           currencyWidget.classList.remove('active');
         }
       });
