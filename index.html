@@ -105,6 +105,7 @@
     [data-theme="dark"] .glass-effect {
       background: rgba(31, 41, 55, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.1);
+<<<<<<< HEAD
     }
 
     /* Holographic Effects */
@@ -165,6 +166,32 @@
       transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
     }
 
+=======
+    }
+
+    /* Neumorphism */
+    .neumorphism-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+
+    [data-theme="dark"] .neumorphism-card {
+      box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.05);
+    }
+
+    /* 3D Effects */
+    .hover-3d {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-style: preserve-3d;
+    }
+
+    .hover-3d:hover {
+      transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
+    }
+
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     /* Gradient Text Animation */
     .animated-gradient {
       background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -312,6 +339,7 @@
       transform: scale(1.1) rotate(15deg);
     }
 
+<<<<<<< HEAD
     /* AI Chat Widget */
     .chat-widget {
       position: fixed;
@@ -471,6 +499,8 @@
       pointer-events: none;
     }
 
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -677,6 +707,7 @@
       font-size: 1em;
     }
 
+<<<<<<< HEAD
     .stats-dashboard {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -695,12 +726,47 @@
 
     .stat-number {
       font-size: 2.5em;
+=======
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2em;
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       font-weight: 700;
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+<<<<<<< HEAD
       margin-bottom: 10px;
+=======
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.9em;
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     }
 
     .about-image {
@@ -856,6 +922,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
+<<<<<<< HEAD
       background: var(--gradient-primary);
       transform: translateX(-50%);
     }
@@ -981,6 +1048,62 @@
       animation: pulse 2s infinite;
     }
 
+=======
+      background: var(--gradient-primary);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin: 40px 0;
+      position: relative;
+      width: 50%;
+      padding: 20px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Statistics Dashboard */
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      padding: 30px 20px;
+      border-radius: var(--border-radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-size: 2.5em;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     /* Contact Section */
     .contact-container {
       display: grid;
@@ -1136,6 +1259,7 @@
         order: -1;
       }
       
+<<<<<<< HEAD
       .timeline::before {
         left: 30px;
       }
@@ -1153,6 +1277,20 @@
       .chat-window {
         width: 300px;
         right: -50px;
+=======
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 70px;
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       }
     }
 
@@ -1196,6 +1334,7 @@
 
       .stats-dashboard {
         grid-template-columns: 1fr;
+<<<<<<< HEAD
       }
 
       .journey-map {
@@ -1206,6 +1345,8 @@
 
       .journey-map::before {
         display: none;
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       }
     }
   </style>
@@ -1214,6 +1355,7 @@
   <!-- Custom Cursor -->
   <div class="custom-cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
+<<<<<<< HEAD
 
   <!-- Interactive Background Canvas -->
   <canvas id="interactive-bg"></canvas>
@@ -1265,17 +1407,30 @@
     </div>
   </div>
 
+=======
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
   <!-- Header & Navigation -->
   <header>
     <div class="nav-container">
       <div class="logo">HA</div>
       
       <ul class="nav-menu" id="navMenu">
+<<<<<<< HEAD
         <li><a href="#home" class="nav-link active">Home</li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#playground" class="nav-link">Playground</a></li>
+=======
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       
@@ -1311,6 +1466,7 @@
         </a>
       </div>
 
+<<<<<<< HEAD
       <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
         <a href="#contact" class="modern-btn">
           <i class="fas fa-paper-plane"></i>
@@ -1321,6 +1477,12 @@
           Voice Commands
         </button>
       </div>
+=======
+      <a href="#contact" class="modern-btn">
+        <i class="fas fa-paper-plane"></i>
+        Get In Touch
+      </a>
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     </div>
   </section>
 
@@ -1343,6 +1505,7 @@
           into functional, beautiful applications. My approach combines technical expertise with creative problem-solving.
         </p>
         
+<<<<<<< HEAD
         <!-- Journey Map -->
         <div class="journey-map">
           <div class="journey-step completed" data-step="1">
@@ -1359,6 +1522,8 @@
           </div>
         </div>
         
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
         <div class="stats-dashboard">
           <div class="stat-card hover-3d">
             <div class="stat-number" data-target="25">0</div>
@@ -1491,6 +1656,23 @@
           <h3>Senior Developer</h3>
           <p>Tech Company • 2022 - Present</p>
           <p>Leading development teams and architecting scalable solutions</p>
+<<<<<<< HEAD
+=======
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content hover-3d">
+          <h3>Full Stack Developer</h3>
+          <p>Startup Inc • 2020 - 2022</p>
+          <p>Developed full-stack applications using modern technologies</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content hover-3d">
+          <h3>Junior Developer</h3>
+          <p>Web Agency • 2019 - 2020</p>
+          <p>Started my professional journey building client websites</p>
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
         </div>
       </div>
       <div class="timeline-item">
@@ -1631,14 +1813,21 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
   </a>
 
   <script>
+<<<<<<< HEAD
     // ==================== THEME SYSTEM ====================
+=======
+    // Theme Toggle
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = themeToggle.querySelector('i');
 
     function initializeTheme() {
       const savedTheme = localStorage.getItem('theme') || 'light';
+<<<<<<< HEAD
       const savedColors = JSON.parse(localStorage.getItem('themeColors')) || {};
       
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       document.documentElement.setAttribute('data-theme', savedTheme);
       updateThemeIcon(savedTheme);
       
@@ -1659,6 +1848,7 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       updateThemeIcon(newTheme);
     });
 
+<<<<<<< HEAD
     // Theme color customization
     const colorOptions = document.querySelectorAll('.color-option');
     colorOptions.forEach(option => {
@@ -1985,6 +2175,41 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       const particlesContainer = document.getElementById('particles');
       const particleCount = 25;
       
+=======
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursorFollower');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 100);
+    });
+
+    // Typewriter Effect
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.innerHTML = '';
+      function typing() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        }
+      }
+      typing();
+    }
+
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 25;
+      
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
@@ -2006,6 +2231,10 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       }
     }
 
+<<<<<<< HEAD
+=======
+    // Animate skills progress bars
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     function animateSkills() {
       const skillProgresses = document.querySelectorAll('.skill-progress');
       skillProgresses.forEach(progress => {
@@ -2014,6 +2243,10 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       });
     }
 
+<<<<<<< HEAD
+=======
+    // Animate counters
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     function animateCounters() {
       const counters = document.querySelectorAll('[data-target]');
       counters.forEach(counter => {
@@ -2034,6 +2267,10 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       });
     }
 
+<<<<<<< HEAD
+=======
+    // Scroll animations
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     function initScrollAnimations() {
       const reveals = document.querySelectorAll('.scroll-reveal');
       const observer = new IntersectionObserver((entries) => {
@@ -2080,13 +2317,20 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
       showAchievement('Networker', 'You sent a contact message!');
     });
 
+<<<<<<< HEAD
     // ==================== INITIALIZATION ====================
+=======
+    // Initialize when DOM is ready
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
     document.addEventListener('DOMContentLoaded', function() {
       initializeTheme();
       createParticles();
       animateSkills();
       initScrollAnimations();
+<<<<<<< HEAD
       initInteractiveBackground();
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
       
       // Start typewriter effect after a delay
       setTimeout(() => {
@@ -2099,13 +2343,17 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             animateCounters();
+<<<<<<< HEAD
             updateJourneyProgress();
+=======
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
             observer.unobserve(entry.target);
           }
         });
       });
       
       observer.observe(document.getElementById('about'));
+<<<<<<< HEAD
       
       // Track initial visit
       localStorage.setItem('achievement_visited', 'true');
@@ -2118,6 +2366,9 @@ console.log(reverseString("hello")); // Should return "olleh"</code></pre>
     window.addEventListener('resize', () => {
       initInteractiveBackground();
     });
+=======
+    });
+>>>>>>> 86917d73b4a838b1be9224db3a85ce7837fd7af1
   </script>
 </body>
-</html>
+</html> 
